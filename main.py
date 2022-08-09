@@ -21,7 +21,7 @@ def recGetAllRequestFromPostmanCollection(data):
 def sendRequest(url, method, dataObj):
     headObj = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOlwiYzg3ZDU0ZDQtYzI0OS0xMWVjLWE4OWYtM2YzMWMzN2E5MmVlXCIsXCJmaXJzdE5hbWVcIjpcIkFiZHVsXCIsXCJsYXN0TmFtZVwiOlwiUm91ZlwiLFwiZW1haWxcIjpcImFiZHVscm91ZkBtYWRyYXNhaC5rZW1lbmFnLmdvLmlkXCIsXCJwcm9maWxlUGljdHVyZUlkXCI6bnVsbCxcInByb2ZpbGVQaWN0dXJlXCI6bnVsbCxcImNvbXBvbmVudElkXCI6XCJlYzA3YjJhMi03NDQ1LTExZWMtOTYwMC0wMjQyYWMxMTAwMTBcIixcImNvbXBvbmVudFwiOntcImlkXCI6XCJlYzA3YjJhMi03NDQ1LTExZWMtOTYwMC0wMjQyYWMxMTAwMTBcIixcImNvZGVcIjpcIjQuNFwiLFwiZGVzY3JpcHRpb25cIjpcIlVuaXQgUGVuZ2Vsb2xhIFByb3lla1wiLFwiY3JlYXRlZEF0XCI6XCIxMy0wMS0yMDIyIDE0OjUzOjQwXCIsXCJ1cGRhdGVkQXRcIjpcIjEzLTAxLTIwMjIgMTQ6NTM6NDBcIn0sXCJwcm92aW5jZUlkXCI6XCJjNDA3NzQ5ZS1iZWRkLTExZWMtODRjNS0xMzcyYWEwMzJhZjNcIixcInByb3ZpbmNlXCI6e1wiaWRcIjpcImM0MDc3NDllLWJlZGQtMTFlYy04NGM1LTEzNzJhYTAzMmFmM1wiLFwibmFtZVwiOlwiTGFpbm55YVwiLFwiY29kZVwiOlwiSUQ5NVwiLFwiY3JlYXRlZEF0XCI6XCIxOC0wNC0yMDIyIDEzOjA3OjAyXCIsXCJ1cGRhdGVkQXRcIjpcIjE4LTA0LTIwMjIgMTM6MDc6MDJcIn0sXCJyb2xlc1wiOlt7XCJpZFwiOlwiYzY5NGMwOTAtYzI1Mi0xMWVjLWE5MTAtNWZlODhlYzVhNmYyXCIsXCJ1c2VySWRcIjpcImM4N2Q1NGQ0LWMyNDktMTFlYy1hODlmLTNmMzFjMzdhOTJlZVwiLFwicm9sZUlkXCI6XCJlMTRhMDMwOC05MWY4LTExZWMtOGFkMC0xN2JhY2EyY2VkYTBcIixcInJvbGVcIjp7XCJpZFwiOlwiZTE0YTAzMDgtOTFmOC0xMWVjLThhZDAtMTdiYWNhMmNlZGEwXCIsXCJuYW1lXCI6XCJDb29yZGluYXRvclwiLFwiY29kZVwiOlwiRVwiLFwic3VwZXJ2aXNpb3JJZFwiOm51bGwsXCJjcmVhdGVkQXRcIjpcIjIwLTAyLTIwMjIgMDk6NTc6NDVcIixcInVwZGF0ZWRBdFwiOlwiMjAtMDItMjAyMiAwOTo1Nzo0NVwifSxcImNyZWF0ZWRBdFwiOlwiMjItMDQtMjAyMiAyMjo0MjoxMVwiLFwidXBkYXRlZEF0XCI6XCIyMi0wNC0yMDIyIDIyOjQyOjExXCJ9LHtcImlkXCI6XCJhYThmNDVmZS1jMjUzLTExZWMtYTk0OC1mYjhjMGU0ZjNlZjlcIixcInVzZXJJZFwiOlwiYzg3ZDU0ZDQtYzI0OS0xMWVjLWE4OWYtM2YzMWMzN2E5MmVlXCIsXCJyb2xlSWRcIjpcImVmZmYzODI4LTEwNWMtMTFlYy05MjBjLWRiZDIwODUwMzIwOVwiLFwicm9sZVwiOntcImlkXCI6XCJlZmZmMzgyOC0xMDVjLTExZWMtOTIwYy1kYmQyMDg1MDMyMDlcIixcIm5hbWVcIjpcIkFkbWluaXN0cmF0b3JcIixcImNvZGVcIjpcIkZcIixcInN1cGVydmlzaW9ySWRcIjpudWxsLFwiY3JlYXRlZEF0XCI6XCIxMS0wMi0yMDIyIDE1OjAzOjMyXCIsXCJ1cGRhdGVkQXRcIjpcIjExLTAyLTIwMjIgMTU6MDM6MzJcIn0sXCJjcmVhdGVkQXRcIjpcIjIyLTA0LTIwMjIgMjI6NDg6MzRcIixcInVwZGF0ZWRBdFwiOlwiMjItMDQtMjAyMiAyMjo0ODozNFwifV0sXCJyZXNvdXJjZXNJZFwiOlwiYWNlNmYyZTItYzI0YS0xMWVjLWE4ZDctYjM1Y2IxODliZWQxXCIsXCJyZXNvdXJjZXNcIjp7XCJpZFwiOlwiYWNlNmYyZTItYzI0YS0xMWVjLWE4ZDctYjM1Y2IxODliZWQxXCIsXCJwaG9uZU51bWJlclwiOlwiKzYyODEyODA1OTQyMjlcIixcInBvc2l0aW9uSWRcIjpcIjJmMWZmMzkwLWVlMmQtMTFlYy1hODIxLWJhMjMyN2VkNzU4N1wiLFwicG9zaXRpb25cIjp7XCJpZFwiOlwiMmYxZmYzOTAtZWUyZC0xMWVjLWE4MjEtYmEyMzI3ZWQ3NTg3XCIsXCJ1bml0SWRcIjpcImI5MjQ2ZmYwLWVkMjItMTFlYy04NjhjLTY3YjQ3YjZiNGJjM1wiLFwidW5pdFwiOntcImlkXCI6XCJiOTI0NmZmMC1lZDIyLTExZWMtODY4Yy02N2I0N2I2YjRiYzNcIixcIm5hbWVcIjpcIlBNVVwiLFwiY3JlYXRlZEF0XCI6XCIxNi0wNi0yMDIyIDEwOjE2OjMzXCIsXCJ1cGRhdGVkQXRcIjpcIjE2LTA2LTIwMjIgMTA6MTY6MzNcIn0sXCJuYW1lXCI6XCJQcm9qZWN0IE1hbmFnZW1lbnQgVW5pdCBDaGFpclwiLFwiY3JlYXRlZEF0XCI6XCIxNy0wNi0yMDIyIDExOjAzOjU3XCIsXCJ1cGRhdGVkQXRcIjpcIjE3LTA2LTIwMjIgMTE6MDM6NTdcIn0sXCJzdXBlcnZpc2lvcklkXCI6bnVsbCxcImNyZWF0ZWRBdFwiOlwiMjItMDQtMjAyMiAyMTo0NDoxMlwiLFwidXBkYXRlZEF0XCI6XCIyMi0wNC0yMDIyIDIxOjQ0OjEyXCJ9LFwibHNwSWRcIjpudWxsLFwibHNwXCI6bnVsbCxcImxhc3RMb2dpblwiOlwiMTAtMDctMjAyMiAxOToyOToxNVwiLFwiY3JlYXRlZEF0XCI6XCIyMi0wNC0yMDIyIDIxOjM3OjQ5XCIsXCJ1cGRhdGVkQXRcIjpcIjIyLTA0LTIwMjIgMjE6Mzc6NDlcIixcImFjdGl2ZVwiOnRydWV9IiwiYXVkIjoidXNlci1hZG1pbiIsImV4cCI6MTY1ODMyMDE1NX0.mc24hGTwcBKw8NsvdypODwQN3tECaAU8Ud5lOhNd721ioFinL9jBRCvAt9zhgX1FH6N01PFLd3CAlGV7T3F-CQ'
+        'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJpZFwiOlwiYzg3ZDU0ZDQtYzI0OS0xMWVjLWE4OWYtM2YzMWMzN2E5MmVlXCIsXCJmaXJzdE5hbWVcIjpcIlVzZXJcIixcImxhc3ROYW1lXCI6XCJBZG1pbmlzdHJhdG9yXCIsXCJlbWFpbFwiOlwiYWJkdWxyb3VmQG1hZHJhc2FoLmtlbWVuYWcuZ28uaWRcIixcInByb2ZpbGVQaWN0dXJlSWRcIjpudWxsLFwicHJvZmlsZVBpY3R1cmVcIjpudWxsLFwiY29tcG9uZW50SWRcIjpcImVjMDdiMmEyLTc0NDUtMTFlYy05NjAwLTAyNDJhYzExMDAxMFwiLFwiY29tcG9uZW50XCI6e1wiaWRcIjpcImVjMDdiMmEyLTc0NDUtMTFlYy05NjAwLTAyNDJhYzExMDAxMFwiLFwiY29kZVwiOlwiNC40XCIsXCJkZXNjcmlwdGlvblwiOlwiVW5pdCBQZW5nZWxvbGEgUHJveWVrXCIsXCJjcmVhdGVkQXRcIjpcIjEzLTAxLTIwMjIgMTQ6NTM6NDBcIixcInVwZGF0ZWRBdFwiOlwiMTMtMDEtMjAyMiAxNDo1Mzo0MFwifSxcInByb3ZpbmNlSWRcIjpcImM0MDc3NDllLWJlZGQtMTFlYy04NGM1LTEzNzJhYTAzMmFmM1wiLFwicHJvdmluY2VcIjp7XCJpZFwiOlwiYzQwNzc0OWUtYmVkZC0xMWVjLTg0YzUtMTM3MmFhMDMyYWYzXCIsXCJuYW1lXCI6XCJMYWlubnlhXCIsXCJjb2RlXCI6XCJJRDk1XCIsXCJjcmVhdGVkQXRcIjpcIjE4LTA0LTIwMjIgMTM6MDc6MDJcIixcInVwZGF0ZWRBdFwiOlwiMTgtMDQtMjAyMiAxMzowNzowMlwifSxcInJvbGVzXCI6W3tcImlkXCI6XCJjNjk0YzA5MC1jMjUyLTExZWMtYTkxMC01ZmU4OGVjNWE2ZjJcIixcInVzZXJJZFwiOlwiYzg3ZDU0ZDQtYzI0OS0xMWVjLWE4OWYtM2YzMWMzN2E5MmVlXCIsXCJyb2xlSWRcIjpcImUxNGEwMzA4LTkxZjgtMTFlYy04YWQwLTE3YmFjYTJjZWRhMFwiLFwicm9sZVwiOntcImlkXCI6XCJlMTRhMDMwOC05MWY4LTExZWMtOGFkMC0xN2JhY2EyY2VkYTBcIixcIm5hbWVcIjpcIkNvb3JkaW5hdG9yXCIsXCJjb2RlXCI6XCJFXCIsXCJzdXBlcnZpc2lvcklkXCI6bnVsbCxcImNyZWF0ZWRBdFwiOlwiMjAtMDItMjAyMiAwOTo1Nzo0NVwiLFwidXBkYXRlZEF0XCI6XCIyMC0wMi0yMDIyIDA5OjU3OjQ1XCJ9LFwiY3JlYXRlZEF0XCI6XCIyMi0wNC0yMDIyIDIyOjQyOjExXCIsXCJ1cGRhdGVkQXRcIjpcIjIyLTA0LTIwMjIgMjI6NDI6MTFcIn0se1wiaWRcIjpcImFhOGY0NWZlLWMyNTMtMTFlYy1hOTQ4LWZiOGMwZTRmM2VmOVwiLFwidXNlcklkXCI6XCJjODdkNTRkNC1jMjQ5LTExZWMtYTg5Zi0zZjMxYzM3YTkyZWVcIixcInJvbGVJZFwiOlwiZWZmZjM4MjgtMTA1Yy0xMWVjLTkyMGMtZGJkMjA4NTAzMjA5XCIsXCJyb2xlXCI6e1wiaWRcIjpcImVmZmYzODI4LTEwNWMtMTFlYy05MjBjLWRiZDIwODUwMzIwOVwiLFwibmFtZVwiOlwiQWRtaW5pc3RyYXRvclwiLFwiY29kZVwiOlwiRlwiLFwic3VwZXJ2aXNpb3JJZFwiOm51bGwsXCJjcmVhdGVkQXRcIjpcIjExLTAyLTIwMjIgMTU6MDM6MzJcIixcInVwZGF0ZWRBdFwiOlwiMTEtMDItMjAyMiAxNTowMzozMlwifSxcImNyZWF0ZWRBdFwiOlwiMjItMDQtMjAyMiAyMjo0ODozNFwiLFwidXBkYXRlZEF0XCI6XCIyMi0wNC0yMDIyIDIyOjQ4OjM0XCJ9XSxcInJlc291cmNlc0lkXCI6XCJhY2U2ZjJlMi1jMjRhLTExZWMtYThkNy1iMzVjYjE4OWJlZDFcIixcInJlc291cmNlc1wiOntcImlkXCI6XCJhY2U2ZjJlMi1jMjRhLTExZWMtYThkNy1iMzVjYjE4OWJlZDFcIixcInBob25lTnVtYmVyXCI6XCIrNjI4MTI4MDU5NDIyOVwiLFwicG9zaXRpb25JZFwiOlwiMmYxZmYzOTAtZWUyZC0xMWVjLWE4MjEtYmEyMzI3ZWQ3NTg3XCIsXCJwb3NpdGlvblwiOntcImlkXCI6XCIyZjFmZjM5MC1lZTJkLTExZWMtYTgyMS1iYTIzMjdlZDc1ODdcIixcInVuaXRJZFwiOlwiYjkyNDZmZjAtZWQyMi0xMWVjLTg2OGMtNjdiNDdiNmI0YmMzXCIsXCJ1bml0XCI6e1wiaWRcIjpcImI5MjQ2ZmYwLWVkMjItMTFlYy04NjhjLTY3YjQ3YjZiNGJjM1wiLFwibmFtZVwiOlwiUE1VXCIsXCJjcmVhdGVkQXRcIjpcIjE2LTA2LTIwMjIgMTA6MTY6MzNcIixcInVwZGF0ZWRBdFwiOlwiMTYtMDYtMjAyMiAxMDoxNjozM1wifSxcIm5hbWVcIjpcIlByb2plY3QgTWFuYWdlbWVudCBVbml0IENoYWlyXCIsXCJjcmVhdGVkQXRcIjpcIjE3LTA2LTIwMjIgMTE6MDM6NTdcIixcInVwZGF0ZWRBdFwiOlwiMTctMDYtMjAyMiAxMTowMzo1N1wifSxcInN1cGVydmlzaW9ySWRcIjpudWxsLFwiY3JlYXRlZEF0XCI6XCIyMi0wNC0yMDIyIDIxOjQ0OjEyXCIsXCJ1cGRhdGVkQXRcIjpcIjE2LTA3LTIwMjIgMjI6MzA6MjdcIn0sXCJsc3BJZFwiOm51bGwsXCJsc3BcIjpudWxsLFwibGFzdExvZ2luXCI6XCIyNS0wNy0yMDIyIDAwOjQ1OjU3XCIsXCJjcmVhdGVkQXRcIjpcIjIyLTA0LTIwMjIgMjE6Mzc6NDlcIixcInVwZGF0ZWRBdFwiOlwiMTYtMDctMjAyMiAyMjozMDoyNlwiLFwiYWN0aXZlXCI6dHJ1ZX0iLCJhdWQiOiJ1c2VyLWFkbWluIiwiZXhwIjoxNjU5NTQ4NzU4fQ.l-O8Wu3IPpIJWH_9hFFNUHMUA_tQ7VaEghJKTC4aGRDKAS-V6eAOSKhxH0aIhQ8oMrdLUOnp_LWW0ACSPV7Isg'
     }
 
     if method == "GET":
@@ -40,7 +40,7 @@ def sendRequest(url, method, dataObj):
 
 def sendAttack(parameterList, requestURL, requestMethod, resultList):
     # if requestMethod == "POST" or requestMethod == "PUT":
-    if requestMethod == "DELETE":
+    if requestMethod == "DELETE" or requestMethod == "POST" or requestMethod == "PUT":
         for parameter in parameterList:
             print(f"Sending request to : {requestURL}")
             print(f"Parameter : {parameter}")
@@ -49,8 +49,12 @@ def sendAttack(parameterList, requestURL, requestMethod, resultList):
                     requestURL, requestMethod, parameter)
                 resultList.append(createResultDict(
                     requestURL, parameter, result.status_code, result.json()))
+            except json.JSONDecodeError:
+                return 0
+            except requests.exceptions.InvalidSchema:
+                return 0
             except Exception as e:
-                logging.error(e)
+                logging.error("Error : ", type(e).__name__, e.args)
                 logging.error(
                     f"url : {requestURL}, parameter : {parameter}")
                 # print("This error", requestURL, parameter)
@@ -109,50 +113,54 @@ def automateAttack(payloadFile, requestFile):
     for requestDict in requestDictList:
         requestMethod = requestDict["request"]["method"]
         requestURL = requestDict["request"]["url"]
-        # if requestMethod == "POST":
-        #     try:
-        #         parameterDict = json.loads(
-        #             requestDict["request"]["body"]["raw"])
-        #         parameterList = parameterProductList(
-        #             parameterDict, payloadContent)
-        #         sendAttack(parameterList, requestURL,
-        #                    requestMethod, resultList)
-        #     except Exception as e:
-        #         logging.error(e, requestURL)
 
-        # if requestMethod == "GET":
-        #     try:
-        #         if (dict == type(requestURL)):
-        #             host = f"{requestURL['host'][0]}"
-        #             for path in requestURL["path"]:
-        #                 host += f"/{path}"
-        #             host += "?"
-        #             parameterDict = getQueryListtoDict(requestURL["query"])
-        #             parameterList = parameterProductList(
-        #                 parameterDict, payloadContent)
-        #             for parameter in parameterList:
-        #                 # print("parameter ", parameter)
-        #                 tempHost = host
-        #                 for key, val in parameter.items():
-        #                     tempHost += f"{key}={val}&"
-        #                 # print(tempHost)
-        #                 result = sendRequest(tempHost,
-        #                                      requestMethod, [])
-        #                 resultList.append(createResultDict(
-        #                     tempHost, "null", result.status_code, result.json()))
-        #     except Exception as e:
-        #         logging.error(e, tempHost)
+        if requestMethod == "POST":
+            try:
+                parameterDict = json.loads(
+                    requestDict["request"]["body"]["raw"])
+                parameterList = parameterProductList(
+                    parameterDict, payloadContent)
+                sendAttack(parameterList, requestURL,
+                           requestMethod, resultList)
+            except Exception as e:
+                logging.error("Error : ", type(e).__name__, e.args, requestURL)
+                # logging.error(e, requestURL)
 
-        # if requestMethod == "PUT":
-        #     try:
-        #         parameterDict = json.loads(
-        #             requestDict["request"]["body"]["raw"])
-        #         parameterList = parameterProductList(
-        #             parameterDict, payloadContent)
-        #         sendAttack(parameterList, requestURL,
-        #                    requestMethod, resultList)
-        #     except Exception as e:
-        #         logging.error(e, requestURL)
+        if requestMethod == "GET":
+            try:
+                if (dict == type(requestURL)):
+                    host = f"{requestURL['host'][0]}"
+                    for path in requestURL["path"]:
+                        host += f"/{path}"
+                    host += "?"
+                    parameterDict = getQueryListtoDict(requestURL["query"])
+                    parameterList = parameterProductList(
+                        parameterDict, payloadContent)
+                    for parameter in parameterList:
+                        # print("parameter ", parameter)
+                        tempHost = host
+                        for key, val in parameter.items():
+                            tempHost += f"{key}={val}&"
+                        # print(tempHost)
+                        result = sendRequest(tempHost,
+                                             requestMethod, [])
+                        resultList.append(createResultDict(
+                            tempHost, "null", result.status_code, result.json()))
+            except Exception as e:
+                # logging.error(e, tempHost)
+                logging.error("Error : ", type(e).__name__, e.args, tempHost)
+
+        if requestMethod == "PUT":
+            try:
+                parameterDict = json.loads(
+                    requestDict["request"]["body"]["raw"])
+                parameterList = parameterProductList(
+                    parameterDict, payloadContent)
+                sendAttack(parameterList, requestURL,
+                           requestMethod, resultList)
+            except Exception as e:
+                logging.error("Error : ", type(e).__name__, e.args, requestURL)
+                # logging.error(e, requestURL)
 
         if requestMethod == "DELETE":
             try:
@@ -163,7 +171,8 @@ def automateAttack(payloadFile, requestFile):
                 sendAttack(parameterList, requestURL,
                            requestMethod, resultList)
             except Exception as e:
-                logging.error(e, requestURL)
+                logging.error("Error : ", type(e).__name__, e.args, requestURL)
+                # logging.error(e, requestURL)
 
         with open(f"reports/{str(date.today())}-{payloadType}.json", "w") as fileRes:
             fileRes.write(json.dumps(resultList, indent=4))
@@ -181,5 +190,6 @@ if __name__ == "__main__":
             logging.info(f"using {attackFile}")
             automateAttack(attackFile, "result.json")
         except Exception as e:
-            logging.error(e)
+            logging.error("Error : ", type(e).__name__, e.args)
+            # logging.error(e)
     logging.info("=============== Successfully running veZtia ===============")
